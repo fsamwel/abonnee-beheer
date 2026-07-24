@@ -16,7 +16,7 @@ async function callApi(method, path, body) {
   const headers = {
     Authorization: `Bearer ${token}`,
     //Accept: 'application/json',
-    Accept: "*/*",
+    Accept: '*/*',
   };
   let requestBody;
   if (body !== undefined) {
@@ -31,13 +31,15 @@ async function callApi(method, path, body) {
   let data = null;
   const text = await response.text();
 
+  if (status > 399) {
+    console.error(
+      `fetch ${method} ${url} ${requestBody}`,
+      headers,
+      status,
+      text,
+    );
+  }
 
-  console.log(
-    `fetch ${method} ${url} ${requestBody}`,
-    headers,
-    status,
-    text
-  );
   if (text) {
     try {
       data = JSON.parse(text);
