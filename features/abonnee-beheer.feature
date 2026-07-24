@@ -29,6 +29,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
   - De toevoegen knop heeft icon "add".
   - De bevestigen knoppen (registreren, wissen, toevoegen) hebben icoon "check". Het icoon is groen.
   - De annuleren knop heeft icoon "cancel" en hint-tekst "annuleren".
+  - De scherm sluiten knop heeft icoon "close" en hint-tekst "scherm sluiten".
 
   Lijsten bevatten de naam van het item plus een bewerken knop en een wissen knop voor dat item.
   De lijsten wordt zo uitgelijnd dat naam links uitgelijnd wordt en de knoppen rechts uitgelijnd worden.
@@ -119,7 +120,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de applicatie is geopend en het abonnees scherm wordt getoond
       Als de gebruiker op de 'bewerken' knop van abonnee 'szw-dtl' klikt
       Dan wordt de titel 'Abonnee-beheer' getoond
-      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen' getoond met rechts de scherm sluiten knop
       En wordt daaronder de 'toevoegen' knop getoond tekst 'groep toevoegen'
 
     Scenario: De gebruiker wil een abonnee bewerken en heeft al groepen
@@ -131,7 +132,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de applicatie is geopend en het abonnees scherm wordt getoond
       Als de gebruiker op de 'bewerken' knop van abonnee 'szw-dtl' klikt
       Dan wordt de titel 'Abonnee-beheer' getoond
-      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond met rechts de scherm sluiten knop
       En wordt daaronder groep 'client' getoond met een bewerken knop en een wissen knop
       En wordt daaronder groep 'relatie' getoond met een bewerken knop en een wissen knop
       En wordt de groep 'andere' niet getoond
@@ -165,7 +166,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de gebruiker vult de naam 'nova-groep' in
       En de gebruiker op de 'bevestigen' knop klikt
       Dan wordt de titel 'Abonnee-beheer' getoond
-      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond met rechts de scherm sluiten knop
       En wordt daaronder groep 'nova-groep' getoond met een bewerken knop en een wissen knop
       En wordt daaronder de 'toevoegen' knop getoond tekst 'groep toevoegen'
       En wordt het 'naam' veld niet meer getoond
@@ -179,7 +180,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de gebruiker vult de naam 'nova-groep' in
       En de gebruiker op de 'annuleren' knop klikt
       Dan wordt de titel 'Abonnee-beheer' getoond
-      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond met rechts de scherm sluiten knop
       En wordt daaronder groep 'nova-groep' getoond met een bewerken knop en een wissen knop
       En wordt daaronder de 'toevoegen' knop getoond tekst 'groep toevoegen'
       En wordt de groep 'nova-groep' niet getoond
@@ -194,6 +195,17 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de gebruiker vult de naam 'foute naam' in
       Dan is de 'bevestigen' knop inactief
       En wordt de foutmelding 'alleen kleine letters (a-z) en een koppelteken (-), geen dubbele koppeltekens (--), minimaal 2 en maximaal 10 tekens, begint en eindigt niet met een koppelteken (-)' onder het veld 'naam' getoond
+
+  Regel: Als op het 'groepen' scherm de 'scherm sluiten' knop wordt geklikt, dan wordt het 'abonnees' scherm getoond
+
+    Scenario: De gebruiker sluit het 'groepen' scherm
+      Gegeven de gebruiker heeft abonnee 'szw-dtl' geregistreerd
+      En de applicatie is geopend en het groepen scherm van abonnee 'szw-dtl' wordt getoond
+      Als de gebruiker op de 'scherm sluiten' knop klikt
+      Dan wordt de titel 'Abonnee-beheer' getoond
+      En wordt daaronder subtitel 'Abonnees' getoond
+      En wordt daaronder abonnee 'szw-dtl' getoond met een bewerken knop en een wissen knop
+      En wordt daaronder de 'toevoegen' knop getoond tekst 'nieuwe abonnee registreren'
 
   Regel: Als de 'bewerken' knop van een groep wordt geklikt, dan toont het scherm 'gebeurtenistypes'
     De applicatie haalt de actuele lijst van gebeurtenistypes van de abonnee op met GET /abonnees/{abonneeNaam}/groepen/{groepNaam}/gebeurtenistypes.
@@ -213,7 +225,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de applicatie is geopend en het groepen scherm van abonnee 'szw-dtl' wordt getoond
       Als de gebruiker op de 'bewerken' knop van groep 'client' klikt
       Dan wordt de titel 'Abonnee-beheer' getoond
-      En wordt daaronder subtitel 'Abonnee szw-dtl - groep client - gebeurtenistypes' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groep client - gebeurtenistypes' getoond met rechts de scherm sluiten knop
       En wordt daaronder een switch die uit staat getoond met tekst 'verhuisd.intergemeentelijk'
       En wordt daaronder een switch die uit staat getoond met tekst 'verhuisd.naar-buitenland'
       En wordt daaronder een switch die uit staat getoond met tekst 'overleden'
@@ -227,7 +239,7 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de applicatie is geopend en het groepen scherm van abonnee 'szw-dtl' wordt getoond
       Als de gebruiker op de 'bewerken' knop van groep 'client' klikt
       Dan wordt de titel 'Abonnee-beheer' getoond
-      En wordt daaronder subtitel 'Abonnee szw-dtl - groep client - gebeurtenistypes' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groep client - gebeurtenistypes' getoond met rechts de scherm sluiten knop
       En wordt daaronder een switch die uit staat getoond met tekst 'verhuisd.intergemeentelijk'
       En wordt daaronder een switch die aan staat getoond met tekst 'verhuisd.naar-buitenland'
       En wordt daaronder een switch die uit staat getoond met tekst 'overleden'
@@ -253,3 +265,16 @@ Functionaliteit: Beheren van abonnees voor de gebeurtenissen API
       En de applicatie is geopend en het gebeurtenistypes scherm van groep 'client' van abonnee 'szw-dtl' wordt getoond
       Als de gebruiker de switch bij 'verhuisd.naar-buitenland' uit zet
       Dan is het gebeurtenistype 'nl.brp.verhuisd.naar-buitenland' toegevoegd aan groep 'client' van abonnee 'szw-dtl'
+
+  Regel: Als op het 'gebeurtenistypes' scherm de 'scherm sluiten' knop wordt geklikt, dan wordt het 'groepen' scherm getoond
+
+    Scenario: De gebruiker sluit het 'groepen' scherm
+      Gegeven de gebruiker heeft abonnee 'szw-dtl' geregistreerd
+      En de gebruiker heeft groep 'client' aan abonnee 'szw-dtl' toegevoegd
+      En de applicatie is geopend en het gebeurtenistypes scherm van groep 'client' van abonnee 'szw-dtl' wordt getoond
+      Als de gebruiker op de 'scherm sluiten' knop klikt
+      Dan wordt de titel 'Abonnee-beheer' getoond
+      En wordt daaronder subtitel 'Abonnee szw-dtl - groepen beheren' getoond met rechts de scherm sluiten knop
+      En wordt daaronder groep 'client' getoond met een bewerken knop en een wissen knop
+      En wordt daaronder de 'toevoegen' knop getoond tekst 'groep toevoegen'
+      
