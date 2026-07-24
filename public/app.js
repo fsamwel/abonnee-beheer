@@ -225,13 +225,6 @@ function renderToevoegRij({ container, toevoegTekst, bevestigTekst, labelTekst, 
     });
 
     const foutmeldingEl = el('p', { class: 'foutmelding', hidden: true });
-    const veldWrapper = el(
-      'div',
-      { class: 'invoer-veld' },
-      el('label', { for: 'naam-invoer', text: 'naam' }),
-      input,
-      foutmeldingEl
-    );
 
     const bevestigKnop = tekstKnop({
       icoon: 'check',
@@ -268,14 +261,20 @@ function renderToevoegRij({ container, toevoegTekst, bevestigTekst, labelTekst, 
       const toonFout = naam.length > 0 && !geldig;
       foutmeldingEl.hidden = !toonFout;
       foutmeldingEl.textContent = toonFout ? NAAM_FOUTMELDING : '';
-      veldWrapper.classList.toggle('ongeldig', toonFout);
+      input.classList.toggle('ongeldig', toonFout);
       bevestigKnop.disabled = !geldig;
     }
 
     input.addEventListener('input', valideer);
 
     container.appendChild(
-      el('div', { class: 'toevoeg-rij' }, veldWrapper, bevestigKnop, annuleerKnop)
+      el(
+        'div',
+        { class: 'invoer-groep' },
+        el('label', { for: 'naam-invoer', text: 'naam' }),
+        el('div', { class: 'toevoeg-rij' }, input, bevestigKnop, annuleerKnop),
+        foutmeldingEl
+      )
     );
     input.focus();
   }

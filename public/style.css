@@ -63,6 +63,7 @@ button {
   border: 1px solid var(--kleur-silver-rand);
   border-radius: 8px;
   padding: 8px 14px;
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -126,35 +127,36 @@ ul.item-lijst li .item-acties {
 }
 
 /* ---- Toevoegen / invoerveld rij ---- */
+.invoer-groep {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.invoer-groep > label {
+  font-size: 0.85rem;
+}
+
 .toevoeg-rij {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
 
-.invoer-veld {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  flex: 1;
-  min-width: 160px;
-}
-
-.invoer-veld label {
-  font-size: 0.85rem;
-}
-
-.invoer-veld input[type='text'] {
+.toevoeg-rij input[type='text'] {
   font-family: inherit;
   font-size: 1rem;
   padding: 8px 10px;
   border: 1px solid #999;
   border-radius: 6px;
+  height: 40px;
+  flex: 1;
+  min-width: 160px;
 }
 
-.invoer-veld input[type='text']:invalid,
-.invoer-veld.ongeldig input[type='text'] {
+.toevoeg-rij input[type='text']:invalid,
+.toevoeg-rij input[type='text'].ongeldig {
   border-color: var(--kleur-fout);
 }
 
