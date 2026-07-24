@@ -1,0 +1,256 @@
+:root {
+  --kleur-tekst: #000000;
+  --kleur-antraciet: #2e2e2e;
+  --kleur-antraciet-tekst: #ffffff;
+  --kleur-silver: #c8c8c8;
+  --kleur-silver-rand: #4d4d4d;
+  --kleur-melding-achtergrond: #e8e8e8;
+  --kleur-fout: #c0392b;
+  --kleur-groen: #2e7d32;
+  --kleur-switch-aan: #2e2e2e;
+  --kleur-switch-uit: #cfcfcf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--kleur-tekst);
+  background: #ffffff;
+}
+
+.app-header {
+  background-color: var(--kleur-antraciet);
+  color: var(--kleur-antraciet-tekst);
+  padding: 16px 24px;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.app-main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.subtitel-rij {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.subtitel-rij h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  flex: 1;
+}
+
+/* ---- Knoppen ---- */
+button {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--kleur-tekst);
+  background-color: var(--kleur-silver);
+  border: 1px solid var(--kleur-silver-rand);
+  border-radius: 8px;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Knoppen zonder tekst zijn vierkant */
+button.icon-only {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  justify-content: center;
+}
+
+button .material-icons {
+  font-size: 20px;
+  line-height: 1;
+}
+
+button.bevestigen .material-icons {
+  color: var(--kleur-groen);
+}
+
+button.terug {
+  margin-bottom: 16px;
+}
+
+/* ---- Lijsten ---- */
+ul.item-lijst {
+  list-style: none;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+ul.item-lijst li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 4px;
+  border-bottom: 1px solid #ddd;
+}
+
+ul.item-lijst li .item-naam {
+  text-align: left;
+  flex: 1;
+}
+
+ul.item-lijst li .item-acties {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* ---- Toevoegen / invoerveld rij ---- */
+.toevoeg-rij {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.invoer-veld {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 160px;
+}
+
+.invoer-veld label {
+  font-size: 0.85rem;
+}
+
+.invoer-veld input[type='text'] {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 8px 10px;
+  border: 1px solid #999;
+  border-radius: 6px;
+}
+
+.invoer-veld input[type='text']:invalid,
+.invoer-veld.ongeldig input[type='text'] {
+  border-color: var(--kleur-fout);
+}
+
+.foutmelding {
+  color: var(--kleur-fout);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* ---- Meldingen ---- */
+.melding {
+  background-color: var(--kleur-melding-achtergrond);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+}
+
+.melding.fout {
+  color: var(--kleur-fout);
+}
+
+/* ---- Gebeurtenistypes / switches ---- */
+ul.gebeurtenistype-lijst {
+  list-style: none;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+ul.gebeurtenistype-lijst li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 4px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Material Design 3 switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex: none;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch .track {
+  position: absolute;
+  inset: 0;
+  background-color: var(--kleur-switch-uit);
+  border: 1px solid var(--kleur-silver-rand);
+  border-radius: 999px;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.switch .thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.15s ease-in-out;
+}
+
+.switch input:checked + .track {
+  background-color: var(--kleur-switch-aan);
+}
+
+.switch input:checked + .track .thumb {
+  transform: translateX(20px);
+}
+
+.switch-label {
+  flex: 1;
+  text-align: left;
+}
+
+/* ---- Toast (algemene meldingen bovenaan) ---- */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--kleur-melding-achtergrond);
+  border-radius: 6px;
+  padding: 10px 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toast.fout {
+  color: var(--kleur-fout);
+}
